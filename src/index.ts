@@ -1,22 +1,3 @@
-import * as $ from 'jquery'
+import { Colorer } from './components/colorer'
 
-declare global {
-  interface Window {
-    $: $
-    jQuery: $
-  }
-}
-
-window.$ = $
-window.jQuery = $
-
-require('jquery-ui')
-
-
-import { colorer } from './components/colorer'
-
-$.widget('ui.colorer', colorer)
-
-$(document).ready(function() {
-  $('#testme').colorer()
-})
+new Colorer({ color: 'cyan' }, '#testme')

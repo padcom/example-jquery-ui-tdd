@@ -1,3 +1,6 @@
+import * as $ from 'jquery'
+require('jquery-ui')
+
 function useDataOptions(element: HTMLElement, widget) {
   Object
     .keys(element.dataset)
@@ -17,10 +20,12 @@ export const colorer = {
     if (this.options.weight) {
       this.element.css('font-weight', this.options.weight);
     }
-    this.element.on('click', e => this._makeTextMoreTrendy())
+    this.element.on('click', e => this.makeTextMoreTrendy())
   },
 
-  _makeTextMoreTrendy () {
-    this.element.css({ color: 'red' })
+  makeTextMoreTrendy () {
+    this.element.css({ color: 'red', 'background-color': 'yellow' })
   }
 }
+
+export const Colorer = $.widget('ui.colorer', colorer)

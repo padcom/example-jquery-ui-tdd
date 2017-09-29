@@ -1,8 +1,8 @@
+import * as $ from 'jquery'
 import { expect } from 'chai'
 
-import { colorer } from '../../src/components/colorer'
+import { colorer, Colorer } from '../../src/components/colorer'
 
-const $ = global.$
 const document = global.window.document
 $.widget('ui.colorer', colorer);
 
@@ -72,5 +72,25 @@ describe('Component: colorer', () => {
     $('#element').click()
 
     expect($('#element span.title').css('font-style')).to.equal('oblique')
+  })
+
+  it('will change background-color to yellow when made more trendy', () => {
+    $('body').html('<div id="element"><span class="title">Hello</span> world!</div>')
+
+    const colorer = new Colorer({ }, '#element')
+    colorer.makeTextMoreTrendy()
+
+    expect(colorer.element.css('color')).to.equal('red')
+    expect(colorer.element.css('background-color')).to.equal('yellow')
+  })
+
+  it('will change background-color to yellow when clicked', () => {
+    $('body').html('<div id="element"><span class="title">Hello</span> world!</div>')
+
+    const colorer = new Colorer({ }, '#element')
+    colorer.element.click()
+
+    expect(colorer.element.css('color')).to.equal('red')
+    expect(colorer.element.css('background-color')).to.equal('yellow')
   })
 })

@@ -9,5 +9,3 @@ global.$ = $;
 global.jQuery = $;
 
 require('jquery-ui')
-
-console.log('Setup of Mocha complete')
