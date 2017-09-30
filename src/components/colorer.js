@@ -1,6 +1,6 @@
 import { useDataOptions } from '../dom-utils'
 
-export const colorer = {
+export const Colorer = $.widget('ui.colorer', {
   options: {
     color: 'red',
   },
@@ -9,9 +9,9 @@ export const colorer = {
     useDataOptions(this.element[0], this);
 
     this.element.find('span.title').css('font-style', 'oblique')
-    this.element.css('background-color', this.options.color);
+    this.element.css('background-color', this.options.color)
     if (this.options.weight) {
-      this.element.css('font-weight', this.options.weight);
+      this.element.css('font-weight', this.options.weight)
     }
     this.element.on('click', e => this.makeTextMoreTrendy())
   },
@@ -19,6 +19,4 @@ export const colorer = {
   makeTextMoreTrendy () {
     this.element.css({ color: 'red', 'background-color': 'yellow' })
   }
-}
-
-export const Colorer = $.widget('ui.colorer', colorer)
+})
