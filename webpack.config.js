@@ -1,20 +1,18 @@
 module.exports = {
-  target: 'web',
-  entry: {
-    index: './src/index.ts'
-  },
+  entry: './src/index.js',
   output: {
-    filename: 'index.js',
+    filename: 'bundle.js',
     path: __dirname + '/dist',
   },
-  resolve: {
-    extensions: [ '.js', '.ts' ]
-  },
+
   module: {
-    exprContextCritical: false,
     rules: [
-      { test: /.ts/, exclude: /node_modules/, loader: 'ts-loader' }
-    ]
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+    ],
   },
-  devtool: 'source-map'
+
+  devtool: 'source-map',
+  devServer: {
+    overlay: true
+  },
 }

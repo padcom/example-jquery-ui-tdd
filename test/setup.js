@@ -1,11 +1,7 @@
+require('babel-polyfill')
+
 const { JSDOM } = require('jsdom')
-const jQuery = require('jquery')
+const dom = new JSDOM(`<html></html>`)
 
-const dom = new JSDOM(`<html></html>`, { })
-const $ = require('jquery')(dom.window)
-
-global.window = dom.window;
-global.$ = $;
-global.jQuery = $;
-
-require('jquery-ui')
+global.jQuery = global.$ = require('jquery')(dom.window)
+require('jquery-ui/ui/widget')

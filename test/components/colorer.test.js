@@ -1,10 +1,6 @@
-import * as $ from 'jquery'
 import { expect } from 'chai'
 
-import { colorer, Colorer } from '../../src/components/colorer'
-
-const document = global.window.document
-$.widget('ui.colorer', colorer);
+import { Colorer } from '../../src/components/colorer'
 
 describe('Component: colorer', () => {
   it('will update background-color with default value', () => {
@@ -16,8 +12,7 @@ describe('Component: colorer', () => {
   })
 
   it('will update background-color with configuration option', () => {
-    $('body').html('<div id="element">Hello</div>')
-    $('#element').attr('data-weight', 'bold')
+    $('body').html('<div id="element" data-weight="bold">Hello</div>')
 
     $('#element').colorer({ color: 'green' })
 

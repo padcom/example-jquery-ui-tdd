@@ -1,11 +1,4 @@
-import * as $ from 'jquery'
-require('jquery-ui')
-
-function useDataOptions(element: HTMLElement, widget) {
-  Object
-    .keys(element.dataset)
-    .forEach(property => widget._setOption(property, element.dataset[property]));
-}
+import { useDataOptions } from '../dom-utils'
 
 export const colorer = {
   options: {
@@ -14,7 +7,7 @@ export const colorer = {
 
   _create () {
     useDataOptions(this.element[0], this);
-    
+
     this.element.find('span.title').css('font-style', 'oblique')
     this.element.css('background-color', this.options.color);
     if (this.options.weight) {
