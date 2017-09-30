@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -11,8 +13,13 @@ module.exports = {
     ],
   },
 
+  externals: {
+    $: "jquery",
+    jquery: "jQuery",
+  },
+
   devtool: 'source-map',
   devServer: {
-    overlay: true
+    overlay: true,
   },
 }
