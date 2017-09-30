@@ -1,0 +1,9 @@
+//
+// Bootstrap using SCSS
+//
+
+// See https://github.com/twbs/bootstrap-sass/blob/master/templates/project/_bootstrap-variables.sass for a list
+// of all available variables. "$bootstrap-sass-asset-helper: true;" is required to properly compile with SASS
+
+$bootstrap-sass-asset-helper: true;
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss"

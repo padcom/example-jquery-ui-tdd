@@ -14,6 +14,7 @@ export const Colorer = $.widget('ui.colorer', {
       this.element.css('font-weight', this.options.weight)
     }
     this.element.on('click', e => this.makeTextMoreTrendy())
+    this.element.append('<h1>Hello, world! with bg image</h1>')
   },
 
   makeTextMoreTrendy () {
