@@ -3,7 +3,7 @@ import './lib/jquery-ui.js'
 import './lib/bootstrap.js'
 
 // Fonts
-require('./icons/ipf-icons.font')
+require('./icons/icons.font')
 
 // Components
 import './components/colorer'

@@ -1,26 +1,33 @@
 const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const styles = new ExtractTextPlugin('styles.css')
+const styles = new ExtractTextPlugin('stylesheets/styles.css')
 
 module.exports = {
-  entry: './src/index.js',
+  context: __dirname + '/src',
+  entry: './index.js',
   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/dist',
+    filename: 'scripts/bundle.js',
+    path: __dirname + '/dist/assets',
+    publicPath: '/assets/',
   },
 
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.(css|scss)$/, use: styles.extract({ use: 'css-loader?sourceMap!sass-loader' }) },
-      { test: /\.(gif|jpg|png|svg|woff|woff2|ttf|eot)$/, loader: 'file-loader?limit=2048&name=assets/[name]-[hash:8].[ext]' },
+      { test: /\.(gif|jpg|png|svg|woff|woff2|ttf|eot)$/, loader: 'file-loader?limit=1&name=[path]/[name].[ext]' },
       { test: /\.font\.js$/, use: styles.extract({ use: [ 'css-loader', 'webfonts-loader' ] }) },
     ],
   },
 
   plugins: [
-    styles
+    styles,
+    new CopyWebpackPlugin([
+      { from: '../index.html', to: '..' },
+      { from: '../assets', to: '.' }
+    ])
   ],
 
   externals: {
