@@ -15,6 +15,7 @@ module.exports = {
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.(css|scss)$/, use: styles.extract({ use: 'css-loader?sourceMap!sass-loader' }) },
       { test: /\.(gif|jpg|png|svg|woff|woff2|ttf|eot)$/, loader: 'file-loader?limit=2048&name=assets/[name]-[hash:8].[ext]' },
+      { test: /\.font\.js$/, use: styles.extract({ use: [ 'css-loader', 'webfonts-loader' ] }) },
     ],
   },
 
