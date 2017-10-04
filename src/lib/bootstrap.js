@@ -1,2 +1,2 @@
-require('./bootstrap.scss')
-require('bootstrap-sass')
+import './bootstrap.scss'
+import 'bootstrap-sass'

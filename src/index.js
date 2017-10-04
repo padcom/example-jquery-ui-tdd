@@ -1,10 +1,12 @@
 // Libraries
-require('./lib/jquery-ui.js')
-require('./lib/bootstrap.js')
+import './lib/jquery-ui.js'
+import './lib/bootstrap.js'
 
 // Components
-require('./components/colorer')
-require('./components/colorer.scss')
+import './components/colorer'
+import './components/colorer.scss'
+import './components/input-masks/my-input-mask'
 
 // Instantiate components
 $('.ui-colorer').colorer()
+$('[data-masked]').myInputMask()
