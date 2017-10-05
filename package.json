@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
-    "test": "nyc mocha --compilers js:babel-core/register --require test/setup.js 'test/**/*.test.js'",
+    "test": "nyc mocha --compilers js:babel-core/register --require test/setup.js \"test/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
     "build": "webpack -p"
   },
