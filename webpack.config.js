@@ -15,6 +15,7 @@ module.exports = {
 
   module: {
     rules: [
+      { test: /\.vue$/, loader: 'vue-loader' },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.(css|scss)$/, use: styles.extract({ use: 'css-loader?sourceMap!sass-loader' }) },
       { test: /\.(gif|jpg|png|svg|woff|woff2|ttf|eot)$/, loader: 'file-loader?limit=1&name=[path]/[name].[ext]' },
@@ -33,6 +34,12 @@ module.exports = {
   externals: {
     $: "jquery",
     jquery: "jQuery",
+  },
+
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
   },
 
   devtool: 'source-map',

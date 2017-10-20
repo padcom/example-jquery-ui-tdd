@@ -13,3 +13,7 @@ import './components/input-masks/my-input-mask'
 // Instantiate components
 $('.ui-colorer').colorer()
 $('[data-masked]').myInputMask()
+
+// Example SPA using Vue.js
+import Spa from './spa-example'
+Spa.init()
