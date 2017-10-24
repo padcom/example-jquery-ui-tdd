@@ -6,14 +6,15 @@ import './lib/bootstrap.js'
 require('./icons/icons.font')
 
 // Components
-import './components/colorer'
-import './components/colorer.scss'
-import './components/input-masks/my-input-mask'
+import './components/clicker'
+import './components/my-input-mask'
 
 // Instantiate components
-$('.ui-colorer').colorer()
+$('.clicker').clicker()
 $('[data-masked]').myInputMask()
 
 // Example SPA using Vue.js
-import Spa from './spa-example'
-Spa.init()
+import { initVueApp } from './vue-utils'
+import App from '@/components/App.vue'
+
+initVueApp('.app', App)

@@ -4,7 +4,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const styles = new ExtractTextPlugin('stylesheets/styles.css')
 
-module.exports = {
+const copy = new CopyWebpackPlugin([
+  { from: '../index.html', to: '..' },
+  { from: '../assets', to: '.' }
+])
+
+const config = {
   context: __dirname + '/src',
   entry: './index.js',
   output: {
@@ -24,20 +29,17 @@ module.exports = {
   },
 
   plugins: [
-    styles,
-    new CopyWebpackPlugin([
-      { from: '../index.html', to: '..' },
-      { from: '../assets', to: '.' }
-    ])
+    styles, copy
   ],
 
   externals: {
-    $: "jquery",
+    $: "jQuery",
     jquery: "jQuery",
   },
 
   resolve: {
     alias: {
+      '@': __dirname + '/src',
       'vue$': 'vue/dist/vue.esm.js'
     }
   },
@@ -45,5 +47,10 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     overlay: true,
+    noInfo: true,
   },
+
+  target: 'web'
 }
+
+module.exports = config

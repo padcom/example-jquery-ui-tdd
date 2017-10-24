@@ -3,3 +3,4 @@ dist
 .tmp
 .nyc_output
 coverage
+_reports

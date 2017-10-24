@@ -1,6 +1,4 @@
-import { expect } from 'chai'
-
-import { MyInputMask } from '../../src/components/input-masks/my-input-mask'
+import { MyInputMask } from '@/components/my-input-mask'
 
 describe('Component: my-input-mask', () => {
   beforeEach(() => $('body').html('<input id="element">'))

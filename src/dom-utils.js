@@ -1,5 +1,5 @@
-export function useDataOptions(element, widget) {
+export function useDataOptions(widget) {
   Object
-    .keys(element.dataset)
-    .forEach(property => widget._setOption(property, element.dataset[property]));
+    .keys(widget.element[0].dataset)
+    .forEach(property => widget._setOption(property, widget.element[0].dataset[property]));
 }

@@ -1,6 +1,6 @@
 <template>
-  <div id="example-app">
-    <h1>{{ header }}</h1>
+  <div>
+    <h1 @click="clicked">{{ header }}!!</h1>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ export default {
   data() {
     return {
       header: 'Hello, world!'
+    }
+  },
+  methods: {
+    clicked (e) {
+      this.header = 'clicked!'
     }
   }
 }
